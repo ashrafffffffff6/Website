@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECG Machine | MLM - Smart MedEquip Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <h1>MLM</h1>
+        <span>Smart MedEquip Assistant</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="equipment-container">
+        <div class="equipment-header">
+          <h2 class="equipment-title">Equipment Information</h2>
+          <h3 class="equipment-subtitle">{{ equipment.device_name }}</h3>
+        </div>
+
+        <div class="equipment-info">
+          <div class="info-group">
+            <span class="info-label">Serial Number:</span>
+            <span class="info-value">{{ equipment.serial_number }}</span>
+          </div>
+          <div class="info-group">
+            <span class="info-label">Device Name:</span>
+            <span class="info-value">{{ equipment.device_name }}</span>
+          </div>
+          <div class="info-group">
+            <span class="info-label">Equipment Type:</span>
+            <span class="info-value">{{ equipment.equipment_type }}</span>
+          </div>
+          <div class="info-group">
+            <span class="info-label">Service Date:</span>
+            <span class="info-value">{{ equipment.service_date }}</span>
+          </div>
+          <div class="info-group">
+            <span class="info-label">Maintenance Frequency:</span>
+            <span class="info-value">{{ equipment.maintenance_frequency }}</span>
+          </div>
+          <div class="info-group">
+            <span class="info-label">Last Maintenance Date:</span>
+            <span class="info-value">{{ equipment.last_maintenance_date }}</span>
+          </div>
+          <div class="info-group">
+            <span class="info-label">Next Maintenance Due:</span>
+            <span class="info-value">{{ equipment.next_maintenance_due }}</span>
+          </div>
+        </div>
+
+        <div class="purpose-section">
+          <h3 class="purpose-title">Purpose:</h3>
+          {% set purposes = equipment.purpose.split('.') %}
+          <ul class="purpose-list">
+            {% for purpose in purposes %}
+              {% if purpose.strip() %}
+                <li>{{ purpose.strip() }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="more-details-btn">
+          <a href="{{ url_for('more_details', equipment_type='ecg_machine') }}" class="btn">Click for More Details</a>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="{{ url_for('home') }}">Back to Login</a>
+      </div>
+    </main>
+  </div>
+  
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>More Details | MLM - Smart MedEquip Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <h1>MLM</h1>
+        <span>Smart MedEquip Assistant</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="equipment-container">
+        <div class="equipment-header">
+          <h2 class="equipment-title">Additional Details</h2>
+          <h3 class="equipment-subtitle">{{ equipment_type | replace('_', ' ') | title }}</h3>
+        </div>
+
+        <p>This page would contain additional details about the equipment, including maintenance history, user manuals, troubleshooting guides, and other relevant information.</p>
+        <p>In a production environment, this would connect to a more detailed database or external system with comprehensive equipment information.</p>
+
+        <div class="nav-links">
+          <a href="javascript:history.back()">Back to Equipment Details</a>
+          <a href="{{ url_for('chatbot_page', equipment_type=equipment_type) }}">
+            <button>💬 Chat with Assistant</button>
+          </a>
+          <a href="{{ url_for('home') }}">Back to Login</a>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
