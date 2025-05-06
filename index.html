@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MLM - Smart MedEquip Assistant</title>
+  <!-- Linking CSS using url_for -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <h1>MLM</h1>
+        <span>Smart MedEquip Assistant</span>
+      </div>
+    </header>
+
+    <main>
+      <div class="login-container">
+        <h2>Login Page for Hospital Staff</h2>
+        <form id="loginForm" action="/login" method="POST">
+          <div class="form-group">
+            <label for="hospital">Select a hospital</label>
+            <div class="form-select">
+              <select id="hospital" name="hospital" class="form-control" required>
+                <option value="" disabled selected>Select a hospital</option>
+                <option value="military">Sultan Qaboos University Hospital</option>
+                <option value="royal">The Royal Hospital</option>
+                <option value="university">Armed Forces Hospital</option>
+                <option value="more">More</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="civil_id">Civil ID</label>
+            <input type="text" id="civil_id" name="civil_id" class="form-control" placeholder="Enter your Civil ID" required>
+          </div>
+
+          <div class="form-group">
+            <label for="equipment">Select equipment</label>
+            <div class="form-select">
+              <select id="equipment" name="equipment" class="form-control" required>
+                <option value="" disabled selected>Select equipment</option>
+                <option value="oxygen_concentrator">Oxygen Concentrator</option>
+                <option value="ecg_machine">ECG Machine</option>
+                <option value="defibrillator">Defibrillator Machine</option>
+                <option value="more">More</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-block">Next</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Linking JavaScript using url_for -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
